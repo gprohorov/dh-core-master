@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>clinicway-connector-terra</artifactId>
+    <version>${revision}</version>
+
+    <parent>
+        <groupId>io.clinicway.dh.connector</groupId>
+        <artifactId>clinicway-connector</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <name>clinicway-connector-terra</name>
+    <description>API for connection to Legacy TerraLab DataBase.</description>
+
+    <organization>
+        <name>ClinicWay</name>
+        <url>https://clinicway.io/</url>
+    </organization>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <!-- ============ Internal dependencies ============ -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.clinicway.dh.connector</groupId>-->
+        <!--            <artifactId>clinicway-connector-core</artifactId>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.firebirdsql.jdbc</groupId>
+            <artifactId>jaybird-jdk18</artifactId>
+            <version>2.2.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <!-- Dev Tools -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>annotations</artifactId>
+            <version>9.0.4</version>
+        </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Build -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>rpm-maven-plugin</artifactId>
+            <version>2.2.0</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>io.clinicway.dh.connector.terra.ConnectorTerraApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>rpm-maven-plugin</artifactId>-->
+<!--                <version>2.2.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate-rpm</id>-->
+<!--                        <goals>-->
+<!--                            <goal>rpm</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <license>(c) 2023, ClinicWay</license>-->
+<!--                    <distribution>Trash 2005</distribution>-->
+<!--                    <group>Application/Collectors</group>-->
+<!--                    <icon>src/main/resources/icon.gif</icon>-->
+<!--                    <packager>ClinicWay</packager>-->
+<!--                    <prefix>/usr/local</prefix>-->
+<!--                    <changelogFile>src/changelog</changelogFile>-->
+<!--                    <defineStatements>-->
+<!--                        <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>-->
+<!--                    </defineStatements>-->
+<!--                    <mappings>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/bin/landfill</directory>-->
+<!--                            <filemode>440</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <sources>-->
+<!--                                <source>-->
+<!--                                    <location>target/classes</location>-->
+<!--                                </source>-->
+<!--                            </sources>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/doc/landfill</directory>-->
+<!--                            <documentation>true</documentation>-->
+<!--                            <filemode>444</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <sources>-->
+<!--                                <source>-->
+<!--                                    <location>target/site</location>-->
+<!--                                </source>-->
+<!--                            </sources>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/lib</directory>-->
+<!--                            <filemode>750</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <dependency>-->
+<!--                                <includes>-->
+<!--                                    <include>jmock:jmock</include>-->
+<!--                                    <include>javax.servlet:servlet-api:2.4</include>-->
+<!--                                </includes>-->
+<!--                                <excludes>-->
+<!--                                    <exclude>junit:junit</exclude>-->
+<!--                                </excludes>-->
+<!--                            </dependency>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/bin</directory>-->
+<!--                            <filemode>750</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <sources>-->
+<!--                                <source>-->
+<!--                                    <location>src/main/bin</location>-->
+<!--                                </source>-->
+<!--                                <softlinkSource>-->
+<!--                                    <location>/usr/local/bin/new.sh</location>-->
+<!--                                    <destination>old.sh</destination>-->
+<!--                                </softlinkSource>-->
+<!--                            </sources>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/oldbin</directory>-->
+<!--                            <filemode>750</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <sources>-->
+<!--                                <softlinkSource>-->
+<!--                                    <location>/usr/local/bin</location>-->
+<!--                                </softlinkSource>-->
+<!--                            </sources>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/conf/landfill</directory>-->
+<!--                            <configuration>true</configuration>-->
+<!--                            <filemode>640</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                            <sources>-->
+<!--                                <source>-->
+<!--                                    <location>src/main/conf</location>-->
+<!--                                </source>-->
+<!--                            </sources>-->
+<!--                        </mapping>-->
+<!--                        <mapping>-->
+<!--                            <directory>/usr/local/log/landfill</directory>-->
+<!--                            <filemode>750</filemode>-->
+<!--                            <username>dumper</username>-->
+<!--                            <groupname>dumpgroup</groupname>-->
+<!--                        </mapping>-->
+<!--                    </mappings>-->
+<!--                    <preinstallScriptlet>-->
+<!--                        <script>echo "installing ${project.name} now"</script>-->
+<!--                    </preinstallScriptlet>-->
+<!--                    <postinstallScriptlet>-->
+<!--                        <scriptFile>src/main/scripts/postinstall</scriptFile>-->
+<!--                        <fileEncoding>utf-8</fileEncoding>-->
+<!--                        <filter>true</filter>-->
+<!--                    </postinstallScriptlet>-->
+<!--                    <preremoveScriptlet>-->
+<!--                        <scriptFile>src/main/scripts/preremove</scriptFile>-->
+<!--                        <fileEncoding>utf-8</fileEncoding>-->
+<!--                    </preremoveScriptlet>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+
+</project>

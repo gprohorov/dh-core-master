@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:6210}
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+  datasource:
+    observer:
+      url: jdbc:postgresql://${DB_PG_HOST:localhost}:${DB_PG_PORT:5433}/${DB_PG_DATABASE:dev_data_base_observer}
+      username: ${DB_PG_USER:postgres}
+      password: ${DB_PG_PASSWORD:postgres}
+      driverClassName: org.postgresql.Driver
+
+    terra:
+      url: jdbc:firebirdsql://${DB_FB_HOST:localhost}:${DB_FB_:3050}/${DB_FB_DATABASE:terra}
+      username: ${DB_FB_USER:sysdba}
+      password: ${DB_FB_PASSWORD:masterkey}
+      driverClassName: org.firebirdsql.jdbc.FBDriver

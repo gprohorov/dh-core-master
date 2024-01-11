@@ -1,0 +1,12 @@
+{
+  "themes": [
+    {
+      "name": "keywind",
+      "types": ["login"]
+    },
+    {
+      "name": "clinicway",
+      "types": ["login"]
+    }
+  ]
+}

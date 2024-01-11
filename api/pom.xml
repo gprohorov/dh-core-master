@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.clinicway.dh.api</groupId>
+    <artifactId>clinicway-api</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+
+    <parent>
+        <groupId>io.clinicway.dh</groupId>
+        <artifactId>clinicway-dh</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>core</module>
+        <module>admin</module>
+        <module>consumer</module>
+        <module>management</module>
+    </modules>
+</project>

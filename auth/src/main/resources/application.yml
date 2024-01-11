@@ -1,0 +1,16 @@
+server:
+  port: 6010
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dh_auth
+    username: dh_auth
+    password: dh_auth
+    driverClassName: org.postgresql.Driver
+
+keycloak:
+  server:
+    contextPath:
+    adminUser:
+      username: admin
+      password: gfhjkm

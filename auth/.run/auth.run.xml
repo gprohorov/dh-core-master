@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="auth" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="clinicway-auth" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.clinicway.dh.auth.AuthApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

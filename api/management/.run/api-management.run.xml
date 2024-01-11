@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="api-management" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="clinicway-management-api" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.clinicway.dh.api.management.ApiManagementApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

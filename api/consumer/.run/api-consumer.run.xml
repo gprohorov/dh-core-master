@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="api-consumer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="clinicway-consumer-api" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.clinicway.dh.api.consumer.ApiConsumerApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
